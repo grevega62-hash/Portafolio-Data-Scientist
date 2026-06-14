@@ -1,127 +1,159 @@
-# 🚕 Proyecto 3: Análisis de Viajes Compartidos en Chicago — Zuber
+# 🎮 Proyecto 3: Análisis de Ventas de Videojuegos — Ice
 
 ## 📌 Descripción
 
-Zuber, una nueva empresa de viajes compartidos en Chicago, busca comprender las preferencias de los pasajeros y el impacto de factores externos en la frecuencia y duración de los viajes.
+Ice, una tienda online de videojuegos con ventas a nivel mundial, busca identificar patrones que permitan determinar si un juego puede ser exitoso o no.
 
-En este proyecto se analizan datos de viajes en taxi, empresas competidoras, barrios de Chicago y condiciones climáticas. Además, se prueba una hipótesis relacionada con el efecto del clima lluvioso en la duración de los viajes desde el Loop hasta el Aeropuerto Internacional O'Hare.
+El análisis utiliza datos históricos de ventas, plataformas, géneros, reseñas de usuarios y expertos, así como clasificaciones ESRB. El objetivo es detectar proyectos prometedores y apoyar la planificación de campañas publicitarias para el año 2017.
 
 ---
 
 ## 🎯 Objetivo
 
-Identificar patrones en los viajes urbanos de Chicago, analizar el comportamiento de las empresas competidoras y evaluar si las condiciones climáticas influyen en la duración promedio de los viajes.
+Analizar el comportamiento histórico de ventas de videojuegos para identificar plataformas, géneros y características asociadas con mayores ingresos, con el fin de apoyar decisiones estratégicas de marketing.
 
 ---
 
 ## 🛠️ Herramientas utilizadas
 
-- SQL
 - Python
 - Pandas
+- NumPy
 - Matplotlib
 - SciPy
-- Web scraping
 - Jupyter Notebook
 
 ---
 
 ## 📂 Datos utilizados
 
-El proyecto utiliza información proveniente de una base de datos y archivos CSV derivados de consultas SQL.
-
-### Tablas de la base de datos
-
-| Tabla | Descripción |
-|---|---|
-| `neighborhoods` | Información de los barrios de Chicago |
-| `cabs` | Información de taxis y empresas propietarias |
-| `trips` | Registro de viajes realizados |
-| `weather_records` | Registro de condiciones climáticas por hora |
-
-### Archivos CSV utilizados
+El análisis se realizó con el archivo:
 
 | Archivo | Descripción |
 |---|---|
-| `project_sql_result_01.csv` | Número de viajes por empresa de taxis |
-| `project_sql_result_04.csv` | Promedio de viajes por barrio de destino |
-| `project_sql_result_07.csv` | Viajes desde Loop hasta O'Hare con condiciones climáticas |
+| `games.csv` | Datos históricos de videojuegos, ventas por región, plataformas, géneros, reseñas y clasificación ESRB |
+
+---
+
+## 📊 Variables analizadas
+
+| Variable | Descripción |
+|---|---|
+| `name` | Nombre del videojuego |
+| `platform` | Plataforma de lanzamiento |
+| `year_of_release` | Año de lanzamiento |
+| `genre` | Género del videojuego |
+| `na_sales` | Ventas en Norteamérica |
+| `eu_sales` | Ventas en Europa |
+| `jp_sales` | Ventas en Japón |
+| `other_sales` | Ventas en otras regiones |
+| `critic_score` | Calificación de críticos |
+| `user_score` | Calificación de usuarios |
+| `rating` | Clasificación ESRB |
 
 ---
 
 ## 📋 Tareas realizadas
 
-✔️ Extracción de datos climáticos desde una página web.  
+✔️ Carga y exploración inicial del dataset.  
 
-✔️ Consultas SQL para recuperar y agrupar información de viajes.  
+✔️ Estandarización de nombres de columnas.  
 
-✔️ Uso de `JOIN` para relacionar viajes con condiciones climáticas.  
+✔️ Conversión de tipos de datos.  
 
-✔️ Agrupación de empresas de taxis por volumen de viajes.  
+✔️ Tratamiento de valores ausentes y registros con valor `TBD`.  
 
-✔️ Identificación de las empresas con mayor número de viajes.  
+✔️ Cálculo de ventas globales por videojuego.  
 
-✔️ Identificación de los 10 principales barrios por finalización de viajes.  
+✔️ Análisis de lanzamientos por año.  
 
-✔️ Limpieza y validación de tipos de datos en Python.  
+✔️ Evaluación del ciclo de vida de las plataformas.  
 
-✔️ Visualización de datos mediante gráficos.  
+✔️ Identificación de plataformas líderes, emergentes y en declive.  
 
-✔️ Formulación y prueba de hipótesis estadística.  
+✔️ Análisis de ventas globales mediante diagramas de caja.  
 
----
+✔️ Evaluación de la relación entre reseñas y ventas.  
 
-## 📊 Análisis realizado
+✔️ Análisis de ventas por género.  
 
-El análisis se enfocó en tres áreas principales:
+✔️ Creación de perfiles de usuario por región: Norteamérica, Europa y Japón.  
 
-1. **Competencia en el mercado de taxis**
-   - Se analizaron las empresas con mayor cantidad de viajes.
-   - Se comparó el desempeño de compañías populares como Flash Cab y Taxi Affiliation Services.
+✔️ Evaluación del impacto de la clasificación ESRB en las ventas regionales.  
 
-2. **Preferencias de destino**
-   - Se identificaron los barrios con mayor promedio de finalización de viajes.
-   - Se analizaron los principales puntos de llegada en Chicago.
-
-3. **Impacto del clima**
-   - Se clasificaron las condiciones climáticas como buenas o malas.
-   - Se evaluó si los sábados lluviosos afectan la duración de los viajes desde el Loop hasta el Aeropuerto Internacional O'Hare.
+✔️ Formulación y prueba de hipótesis estadísticas.  
 
 ---
 
-## 🧪 Prueba de hipótesis
+## 📈 Análisis realizado
 
-Se evaluó la siguiente hipótesis:
+El proyecto se dividió en cinco bloques principales:
 
-> La duración promedio de los viajes desde el Loop hasta el Aeropuerto Internacional O'Hare cambia los sábados lluviosos.
+### 1. Preparación de datos
 
-### Hipótesis planteadas
+Se limpiaron y transformaron los datos para asegurar consistencia antes del análisis.  
+También se calcularon las ventas totales globales por videojuego.
 
-**H₀:** La duración promedio de los viajes en sábados lluviosos es igual a la duración promedio en sábados con buen clima.  
+### 2. Análisis temporal y de plataformas
 
-**H₁:** La duración promedio de los viajes en sábados lluviosos es diferente a la duración promedio en sábados con buen clima.
+Se revisó la cantidad de juegos lanzados por año y el comportamiento de ventas por plataforma.  
+Esto permitió identificar qué plataformas fueron populares, cuáles disminuyeron y cuáles podían considerarse relevantes para planear campañas futuras.
 
-Para evaluar la hipótesis se utilizó una prueba estadística de comparación de medias con un nivel de significancia definido.
+### 3. Análisis de reseñas y géneros
+
+Se analizó la relación entre las calificaciones de usuarios y críticos con las ventas.  
+También se comparó el desempeño de distintos géneros para identificar categorías con mayor potencial comercial.
+
+### 4. Perfil regional de usuarios
+
+Se construyeron perfiles de comportamiento para tres regiones principales:
+
+- Norteamérica
+- Europa
+- Japón
+
+Para cada región se analizaron las plataformas principales, los géneros más populares y el posible efecto de la clasificación ESRB en las ventas.
+
+### 5. Pruebas de hipótesis
+
+Se realizaron pruebas estadísticas para comparar calificaciones promedio entre plataformas y géneros.
+
+---
+
+## 🧪 Pruebas de hipótesis
+
+### Hipótesis 1
+
+**H₀:** Las calificaciones promedio de los usuarios para Xbox One y PC son iguales.  
+**H₁:** Las calificaciones promedio de los usuarios para Xbox One y PC son diferentes.
+
+### Hipótesis 2
+
+**H₀:** Las calificaciones promedio de los usuarios para los géneros Acción y Deportes son iguales.  
+**H₁:** Las calificaciones promedio de los usuarios para los géneros Acción y Deportes son diferentes.
+
+Para evaluar las hipótesis se utilizó una prueba estadística de comparación de medias con un nivel de significancia definido.
 
 ---
 
 ## 🚀 Resultados
 
-El proyecto permitió identificar las empresas de taxis con mayor actividad, los barrios más frecuentes como destino y evaluar el posible impacto del clima en la duración de los viajes.
+El análisis permitió identificar patrones relevantes en el mercado de videojuegos, incluyendo diferencias por plataforma, género y región.
 
-Los resultados obtenidos aportan información útil para comprender el mercado de viajes compartidos en Chicago y apoyar decisiones estratégicas para Zuber.
+Los resultados obtenidos ayudan a detectar videojuegos y plataformas con mayor potencial comercial, así como a orientar campañas publicitarias según el comportamiento de los usuarios en cada mercado.
 
 ---
 
 ## 🧠 Habilidades desarrolladas
 
-- Extracción de datos desde la web.
-- Consultas SQL.
-- Unión de tablas con `JOIN`.
-- Agrupación y filtrado de datos.
-- Limpieza y validación de datos con Python.
+- Limpieza y preparación de datos.
 - Análisis exploratorio de datos.
-- Visualización de información.
+- Tratamiento de valores ausentes.
+- Análisis de ventas por región.
+- Visualización de distribuciones.
+- Diagramas de caja y gráficos de dispersión.
+- Análisis de correlación.
+- Estadística descriptiva.
 - Pruebas de hipótesis.
 - Interpretación de resultados para negocio.
 
@@ -136,17 +168,17 @@ Bootcamp de Ciencia de Datos de TripleTen.
 ## 📁 Estructura del proyecto
 
 ```text
-📁 Proyecto_3_Analisis_Viajes_Zuber
+📁 Proyecto_4_Ice_Videogame_Sales_Analysis
 │
-├── notebook.ipynb
 ├── README.md
+├── notebook.ipynb
 ├── data
-│   ├── project_sql_result_01.csv
-│   ├── project_sql_result_04.csv
-│   └── project_sql_result_07.csv
+│   └── games.csv
 └── images
-    ├── viajes_por_empresa.png
-    └── top_10_barrios.png
+    ├── ventas_por_plataforma.png
+    ├── ventas_por_genero.png
+    ├── boxplot_plataformas.png
+    └── correlacion_resenas_ventas.png
 ```
 
 ---
